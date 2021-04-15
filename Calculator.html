@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+    <title>Trade Profit Calculator Tool</title>
+  </head>
+  <body>
+
+    <!--
+      BOOTSTRAP ALERTS
+      https://getbootstrap.com/docs/5.0/components/alerts/#dismissing
+    -->
+    <div class="alert alert-warning alert-dismissible fade show" role="alert" id="invalid-inputs-alert" style="margin-bottom: 0;">
+      <strong>Not Financial Advice!</strong> You should check with your financial advisor before using this tool.
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <!--
+      <div class="alert alert-success alert-dismissible fade show" role="alert" id="valid-inputs-alert" style="margin-bottom: 0;">
+      Success!!
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    -->
+
+    <!--
+      BOOTSTRAP NAV
+      https://getbootstrap.com/docs/5.0/components/navbar/
+    -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Option Credit Spread Calculator</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Current Page</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">Page 2</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">Page 3</a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!--
+      BOOTSTRAP CONTAINER
+      https://getbootstrap.com/docs/5.0/layout/containers/
+    -->
+    <div class="container" style="margin-top:2em;">
+
+      <div>
+        <h1>Vertical Put Option Credit Spreads<br><i>Profit Calculator <br></i> </h1><br><br>
+
+        <!--
+          BOOTSTRAP DROPDOWN
+          https://getbootstrap.com/docs/5.0/components/dropdowns/
+
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown button
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </div>
+        -->
+
+        <!--
+          BOOTSTRAP BUTTONS
+          https://getbootstrap.com/docs/5.0/components/buttons/
+        
+        <button class="btn btn-primary" id="Calculate-button">Calculate</button>
+        <p style="display:inline">Net Profit: <span id="net-profit">(Working)</span></p>
+      </div><br><br>-->
+
+      <!--
+        BOOTSTRAP FORM
+        https://getbootstrap.com/docs/5.0/forms/overview/
+      -->
+
+      
+
+      <!--<form class="mx-auto" style="max-width: 350px; margin-top:2em;" id="form"> </form> 
+    <div id="emailHelp" class="form-text">How much cash to invest </div>-->
+        <h3>Trade Inputs</h3> <span id="my-display"></span>
+        <br>
+        <div class="mb-3">
+            <label for="my-email" class="form-label">Cash to Invest </label>
+            <input type="number" class="form-control" id="Cash-invested" min="0" aria-describedby="emailHelp" placeholder="Amount used as collateral" value="5000">
+            
+          </div>
+
+
+        <div class="mb-3">
+          <label for="my-email" class="form-label">SELL Put Option @ Strike Price </label>
+          <input type="number" class="form-control" id="strike-short" aria-describedby="emailHelp" placeholder="(Upper Leg)" value="25">
+          </div>
+
+
+        <div class="mb-3">
+            <label for="my-email" class="form-label">Premium Received </label>
+            <input type="number" class="form-control" id="premium-short" aria-describedby="emailHelp" placeholder="What you get" value="2">
+            </div>
+
+        <div class="mb-3">
+            <label for="my-email" class="form-label">BUY Put Option @ Strike Price</label>
+            <input type="number" class="form-control" id="Strike-long" aria-describedby="emailHelp" placeholder="(Lower Leg)" value="23">
+        </div>
+
+          <div class="mb-3">
+            <label for="my-email" class="form-label">Premium Paid </label>
+            <input type="number" class="form-control" id="premium-long" aria-describedby="emailHelp" placeholder="(What you Pay)" value="1">
+            </div>
+       
+       
+        <!-- type="submit"-->
+        <button class="btn btn-primary" id="saveinputs-button">Calculate Profit</button>
+        
+    
+    
+
+
+      <footer style="margin-top:2em; margin-bottom:2em;">
+        <hr>
+        &copy; Copyright 2021 LOVREIUS & SON L.L.C, |
+        <a href="https://github.com/SAO53/">source</a>
+      </footer>
+    </div>
+
+    
+    Bootstrap JS Bundle 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+
+      
+            
+            var calculateMeButton = document.getElementById("Calculate-button");
+            var savebutton = document.getElementById("saveinputs-button");
+            var NetProfitSpan = document.getElementById("net-profit");
+            
+            var cash = document.getElementById("Cash-invested");
+            var shortstrike = document.getElementById("strike-short");
+            var longstrike = document.getElementById("Strike-long");
+            var shortpremium = document.getElementById("premium-short");
+            var longpremium = document.getElementById("premium-long");  
+
+            var Netprofitcalc = 0;
+            var collateral = 0;
+            var contractstraded = 0;
+            var proceeds = 0;
+            var fees = 0;
+            var cost = 0;
+            var costpertrade = 1.32;
+            var Return = 0
+
+            var profitdisplay = document.getElementById("my-display")
+            //var profitdisplay = document.getElementById("my-display")
+
+            //calculateMeButton.addEventListener("click", handleClick)
+
+            //handleClick()
+
+            function saveinputs()   {
+                
+                
+                //Calculations
+                //collateral = (shortstrike.value - longstrike.value) * 100;
+                //contractstraded = cash.value / collateral.value;
+                //Netprofitcalc = contractstraded.value * (shortpremium.value-longpremium.value) - (1.32 * contractstraded.value);
+                
+                //profitdisplay.innerText = netprofitcalc.value
+
+                collateral = parseFloat(shortstrike.value)*100 - parseFloat(longstrike.value)*100;
+                contractstraded = parseFloat(cash.value / collateral); 
+                proceeds = parseFloat(contractstraded) * parseFloat(shortpremium.value)*100;
+                fees = parseFloat(costpertrade * contractstraded);
+                cost = parseFloat(longpremium.value) * parseFloat(contractstraded)*100;
+                Netprofitcalc =  proceeds - fees - cost ;               
+                Return = parseFloat(Netprofitcalc/cash.value*100).toFixed(2)+"%";
+                //profitdisplay.innerText = Netprofitcalc.value
+                alert("Profit = "+Netprofitcalc.toFixed(2)+"\nReturn = "+Return)
+                } 
+            
+            savebutton.addEventListener("click", saveinputs)
+
+
+    </script>
+  </body>
+</html>
