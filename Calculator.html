@@ -188,14 +188,14 @@
                 //profitdisplay.innerText = netprofitcalc.value
 
                 collateral = parseFloat(shortstrike.value)*100 - parseFloat(longstrike.value)*100;
-                contractstraded = parseFloat(cash.value / collateral); 
+                contractstraded = Math.floor(parseFloat(cash.value / collateral)); 
                 proceeds = parseFloat(contractstraded) * parseFloat(shortpremium.value)*100;
                 fees = parseFloat(costpertrade * contractstraded);
                 cost = parseFloat(longpremium.value) * parseFloat(contractstraded)*100;
                 Netprofitcalc =  proceeds - fees - cost ;               
                 Return = parseFloat(Netprofitcalc/cash.value*100).toFixed(2)+"%";
                 //profitdisplay.innerText = Netprofitcalc.value
-                alert("Profit = "+Netprofitcalc.toFixed(2)+"\nReturn = "+Return)
+                alert("\nProfit = $"+Netprofitcalc.toFixed(2)+"\n\nReturn = " + Return + "\n\nCredit Spreads = " + contractstraded)
                 } 
             
             savebutton.addEventListener("click", saveinputs)
