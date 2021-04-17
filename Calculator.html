@@ -7,16 +7,64 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
-    <title>Trade Profit Calculator Tool</title>
+    <title>Calculator</title>
   </head>
+
+  <body>
+
+    <!--
+      BOOTSTRAP NAV
+      https://getbootstrap.com/docs/5.0/components/navbar/
+    -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        
+       <a class="navbar-brand" ><b>Lovreius & Son, L.L.C.</b></a>
+       
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="Landing.html">Home</a>
+              
+
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="About Us.html">About Our Firm</a>
+              
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="Investment Strategies.html">Investment Strategies</a>
+            
+
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link active" href="Calculator.html">Profit Calculator</a>
+              <div style="border: 2px solid rgb(255, 255, 255);">
+
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
   <body>
 
     <!--
       BOOTSTRAP ALERTS
       https://getbootstrap.com/docs/5.0/components/alerts/#dismissing
     -->
-    <div class="alert alert-warning alert-dismissible fade show" role="alert" id="invalid-inputs-alert" style="margin-bottom: 0;">
-      <strong>Not Financial Advice!</strong> You should check with your financial advisor before using this tool.
+    <div class="alert alert-secondary alert-dismissible fade show" role="alert" id="invalid-inputs-alert" style="margin-bottom: 0;">
+      <strong>Warning!</strong> Check with your financial advisor before using this tool.
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     <!--
@@ -26,36 +74,6 @@
     </div>
     -->
 
-    <!--
-      BOOTSTRAP NAV
-      https://getbootstrap.com/docs/5.0/components/navbar/
-    -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="/">Option Credit Spread Calculator</a>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Current Page</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="#">Page 2</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="#">Page 3</a>
-            </li>
-
-          </ul>
-        </div>
-      </div>
-    </nav>
 
     <!--
       BOOTSTRAP CONTAINER
@@ -64,7 +82,19 @@
     <div class="container" style="margin-top:2em;">
 
       <div>
-        <h1>Vertical Put Option Credit Spreads<br><i>Profit Calculator <br></i> </h1><br><br>
+        
+
+        <figure>
+          <blockquote class="blockquote">
+            <h2>Credit Spread Profit Calculator - Weekly Profits</h2>
+          </blockquote>
+          <figcaption class="blockquote-footer">
+          Use this calculator to predict the net profit from vertical put options
+          </figcaption>
+        </figure>
+
+        
+
 
         <!--
           BOOTSTRAP DROPDOWN
@@ -99,8 +129,7 @@
 
       <!--<form class="mx-auto" style="max-width: 350px; margin-top:2em;" id="form"> </form> 
     <div id="emailHelp" class="form-text">How much cash to invest </div>-->
-        <h3>Trade Inputs</h3> <span id="my-display"></span>
-        <br>
+        <h4>Inputs </h4> <span id="my-display"></span>
         <div class="mb-3">
             <label for="my-email" class="form-label">Cash to Invest </label>
             <input type="number" class="form-control" id="Cash-invested" min="0" aria-describedby="emailHelp" placeholder="Amount used as collateral" value="5000">
@@ -110,23 +139,23 @@
 
         <div class="mb-3">
           <label for="my-email" class="form-label">SELL Put Option @ Strike Price </label>
-          <input type="number" class="form-control" id="strike-short" aria-describedby="emailHelp" placeholder="(Upper Leg)" value="25">
+          <input type="number" class="form-control" id="strike-short" min="0" aria-describedby="emailHelp" placeholder="(Upper Leg)" value="25">
           </div>
 
 
         <div class="mb-3">
             <label for="my-email" class="form-label">Premium Received </label>
-            <input type="number" class="form-control" id="premium-short" aria-describedby="emailHelp" placeholder="What you get" value="2">
+            <input type="number" class="form-control" id="premium-short" min="0" aria-describedby="emailHelp" placeholder="What you get" value="1.9">
             </div>
 
         <div class="mb-3">
             <label for="my-email" class="form-label">BUY Put Option @ Strike Price</label>
-            <input type="number" class="form-control" id="Strike-long" aria-describedby="emailHelp" placeholder="(Lower Leg)" value="23">
+            <input type="number" class="form-control" id="Strike-long" min="0" aria-describedby="emailHelp" placeholder="(Lower Leg)" value="23">
         </div>
 
           <div class="mb-3">
             <label for="my-email" class="form-label">Premium Paid </label>
-            <input type="number" class="form-control" id="premium-long" aria-describedby="emailHelp" placeholder="(What you Pay)" value="1">
+            <input type="number" class="form-control" id="premium-long" min="0" aria-describedby="emailHelp" placeholder="(What you Pay)" value="1.6">
             </div>
        
        
@@ -140,12 +169,12 @@
       <footer style="margin-top:2em; margin-bottom:2em;">
         <hr>
         &copy; Copyright 2021 LOVREIUS & SON L.L.C, |
-        <a href="https://github.com/SAO53/">source</a>
+      
       </footer>
     </div>
 
     
-    Bootstrap JS Bundle 
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
     <script type="text/javascript">
 
@@ -195,7 +224,7 @@
                 Netprofitcalc =  proceeds - fees - cost ;               
                 Return = parseFloat(Netprofitcalc/cash.value*100).toFixed(2)+"%";
                 //profitdisplay.innerText = Netprofitcalc.value
-                alert("\nProfit = $"+Netprofitcalc.toFixed(2)+"\n\nReturn = " + Return + "\n\nCredit Spreads = " + contractstraded)
+                alert("\nProfit = $"+Netprofitcalc.toFixed(2)+"\n\nReturn = " + Return + "\n\nOption Contract Pairs Traded = " + contractstraded)
                 } 
             
             savebutton.addEventListener("click", saveinputs)
